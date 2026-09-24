@@ -25,16 +25,14 @@ import ticketControllerFactory from "./controllers/ticketController.js";
 import { seedDemoCatalog } from "./utils/seedDemoData.js";
 import cors from "cors";
 
-app.use(cors({
-  origin: "https://frontend-indol-psi-76.vercel.app",
-  credentials: true
-}));
+
 
 
 dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
+
 
 const requiredEnvironment = ["MONGO_URI", "JWT_SECRET"];
 const missingEnvironment = requiredEnvironment.filter((name) => !process.env[name]);
@@ -48,7 +46,11 @@ if (process.env.JWT_SECRET === "yourSecretKeyHere") {
 }
 
 // Middlewares
-app.use(cors());
+
+app.use(cors({
+  origin: "https://frontend-indol-psi-76.vercel.app",
+  credentials: true
+}));
 app.use(express.json());
 if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
