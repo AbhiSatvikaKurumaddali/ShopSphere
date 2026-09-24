@@ -3,7 +3,7 @@ import express from "express";
 import http from "http";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import cors from "cors";
+
 import morgan from "morgan";
 
 import authRoutes from "./routes/authRoutes.js";
