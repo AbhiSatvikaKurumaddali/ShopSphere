@@ -23,6 +23,13 @@ import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import chatControllerFactory from "./controllers/chatController.js";
 import ticketControllerFactory from "./controllers/ticketController.js";
 import { seedDemoCatalog } from "./utils/seedDemoData.js";
+import cors from "cors";
+
+app.use(cors({
+  origin: "https://frontend-indol-psi-76.vercel.app",
+  credentials: true
+}));
+
 
 dotenv.config();
 
